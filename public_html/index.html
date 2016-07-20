@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>The Bieber Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="Conversation"></div>
+        <script>
+            var age, output, api = {};
+
+            api.statement = function (text) {
+                return '<p />' + text;
+            };
+
+            api.appendStatement = function (statementHtml) {
+                output = document.querySelector('#Conversation');
+                output.innerHTML = output.innerHTML + '\n' + statementHtml;
+            };
+
+            var response = confirm('Would you like to play bieber?');
+            
+            console.log('Response to play challenge ->', response);
+
+            if (response) {
+                age = prompt('How old are you?');
+
+                api.appendStatement(api.statement('Game on! you ' + age + ' year old stud!'));
+
+                setTimeout(function () {
+                    api.appendStatement(api.statement('Now something else happens after a brief wait...'));
+                    confirm('Ready to begin?');
+                }, 3000);
+            } else {
+                api.appendStatement(api.statement('Aiight. We see how it is. Bye then :('));
+            }
+
+        </script>
+    </body>
+</html>
